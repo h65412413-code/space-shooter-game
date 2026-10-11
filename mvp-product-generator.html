@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ProductCopy Pro</title>
+  <style>
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: Inter, "Segoe UI", sans-serif;
+      background: linear-gradient(135deg, #0f172a, #111827 40%, #1e293b);
+      color: #e5eefb;
+    }
+    .wrap {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 32px 20px 60px;
+    }
+    .topbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 26px;
+    }
+    .brand {
+      font-size: 28px;
+      font-weight: 800;
+      letter-spacing: 0.04em;
+      background: linear-gradient(90deg, #7dd3fc, #34d399, #c084fc);
+      -webkit-background-clip: text;
+      color: transparent;
+    }
+    .tag {
+      background: rgba(148, 163, 184, 0.12);
+      border: 1px solid rgba(148,163,184,0.25);
+      border-radius: 999px;
+      padding: 8px 12px;
+      font-size: 12px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: #cbd5e1;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: 420px 1fr;
+      gap: 24px;
+    }
+    .panel {
+      background: rgba(15, 23, 42, 0.82);
+      border: 1px solid rgba(148,163,184,0.18);
+      border-radius: 20px;
+      box-shadow: 0 20px 45px rgba(0,0,0,0.18);
+      padding: 22px;
+    }
+    label {
+      display: block;
+      margin-bottom: 10px;
+      color: #cbd5e1;
+      font-size: 13px;
+      font-weight: 600;
+    }
+    input, select, textarea, button {
+      width: 100%;
+      border-radius: 12px;
+      border: 1px solid rgba(148,163,184,0.2);
+      background: rgba(15, 23, 42, 0.7);
+      color: #edf2ff;
+      padding: 12px 14px;
+      font-size: 14px;
+    }
+    input, select, textarea {
+      margin-bottom: 18px;
+    }
+    textarea {
+      min-height: 110px;
+      resize: vertical;
+    }
+    button {
+      cursor: pointer;
+      border: none;
+      background: linear-gradient(135deg, #34d399, #60a5fa, #c084fc);
+      color: #04131d;
+      font-weight: 800;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      transition: transform 0.15s ease, box-shadow 0.2s ease;
+      box-shadow: 0 12px 28px rgba(96,165,250,0.25);
+    }
+    button:hover {
+      transform: translateY(-1px);
+    }
+    .output-box {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+    .output-card {
+      background: rgba(9, 14, 25, 0.75);
+      border: 1px solid rgba(148,163,184,0.18);
+      border-radius: 18px;
+      padding: 18px;
+    }
+    .output-card h3 {
+      margin: 0 0 12px;
+      font-size: 13px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: #7dd3fc;
+    }
+    .output-card p, .output-card li {
+      color: #e2e8f0;
+      line-height: 1.72;
+      margin: 0;
+    }
+    .output-card ul {
+      margin: 0;
+      padding-left: 18px;
+    }
+    .cta-row {
+      display: flex;
+      gap: 12px;
+    }
+    .secondary {
+      background: rgba(59,130,246,0.12);
+      border: 1px solid rgba(96,165,250,0.4);
+      color: #dbeafe;
+      width: auto;
+      min-width: 170px;
+    }
+    @media (max-width: 860px) {
+      .grid { grid-template-columns: 1fr; }
+      .topbar { flex-direction: column; align-items: flex-start; gap: 12px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="topbar">
+      <div class="brand">ProductCopy Pro</div>
+      <div class="tag">MVP: Tool kiếm tiền</div>
+    </div>
+
+    <div class="grid">
+      <div class="panel">
+        <label> Tên sản phẩm </label>
+        <input id="productName" value="Máy xay sinh tố mini" />
+
+        <label> Danh mục </label>
+        <select id="category">
+          <option>Gia dụng</option>
+          <option>Thời trang</option>
+          <option>Điện tử</option>
+          <option>Sắc đẹp</option>
+          <option>Thể thao</option>
+          <option>Đồ trẻ em</option>
+        </select>
+
+        <label> Khách hàng mục tiêu </label>
+        <input id="audience" value="Phụ nữ 25-40 sống ở thành phố, thích tiện nghi" />
+
+        <label> Tông giọng </label>
+        <select id="tone">
+          <option>Thực dụng</option>
+          <option>Premium</option>
+          <option>Hấp dẫn</option>
+          <option>Đồng hồ giỏi</option>
+          <option>Vui tươi</option>
+        </select>
+
+        <label> Keyword chính </label>
+        <input id="keyword" value="máy xay sinh tố mini" />
+
+        <button id="generateBtn">Tạo nội dung</button>
+      </div>
+
+      <div class="output-box">
+        <div class="output-card">
+          <h3>Title</h3>
+          <p id="titleOut"></p>
+        </div>
+
+        <div class="output-card">
+          <h3>Short Description</h3>
+          <p id="descriptionOut"></p>
+        </div>
+
+        <div class="output-card">
+          <h3>Benefits</h3>
+          <ul id="benefitsOut"></ul>
+        </div>
+
+        <div class="output-card">
+          <h3>Ad Copy</h3>
+          <p id="adCopyOut"></p>
+        </div>
+
+        <div class="output-card">
+          <h3>SEO Keywords</h3>
+          <p id="seoOut"></p>
+        </div>
+
+        <div class="cta-row">
+          <button id="copyBtn" class="secondary">Copy tất cả</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const productNameEl = document.getElementById('productName');
+    const categoryEl = document.getElementById('category');
+    const audienceEl = document.getElementById('audience');
+    const toneEl = document.getElementById('tone');
+    const keywordEl = document.getElementById('keyword');
+    const generateBtn = document.getElementById('generateBtn');
+    const copyBtn = document.getElementById('copyBtn');
+
+    function titleCase(str) {
+      return str.toLowerCase().split(' ').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ');
+    }
+
+    function generateContent() {
+      const name = productNameEl.value.trim() || 'Sản phẩm';
+      const category = categoryEl.value;
+      const audience = audienceEl.value.trim() || 'Người tiêu dùng';
+      const tone = toneEl.value;
+      const keyword = keywordEl.value.trim() || name;
+
+      const toneMap = {
+        'Thực dụng': 'Sản phẩm thiết kế theo hướng tối giản, dễ sử dụng, tiện lợi cho đời sống hằng ngày.',
+        'Premium': 'Sản phẩm hợp với phong cách hiện đại, sang trọng, mang cảm giác chất lượng cao.',
+        'Hấp dẫn': 'Sản phẩm được thiết kế để thu hút ngay từ cái nhìn đầu tiên và tạo cảm giác muốn sở hữu.',
+        'Đồng hồ giỏi': 'Sản phẩm được tối ưu cho hiệu suất, độ bền và trải nghiệm mượt mà mỗi ngày.',
+        'Vui tươi': 'Sản phẩm mang cảm giác thoải mái, dễ chịu và khiến mọi trải nghiệm trở nên thú vị hơn.'
+      };
+
+      const title = `${titleCase(name)} - ${titleCase(keyword)} | Chất lượng ${category.toLowerCase()}`;
+      const description = `${name} là lựa chọn phù hợp cho ${audience}. ${toneMap[tone]} Với thiết kế tối ưu, sản phẩm giúp bạn tiết kiệm thời gian, nâng cao hiệu quả và mang lại trải nghiệm tiện lợi mỗi ngày.`;
+
+      const benefits = [
+        `Thiết kế phù hợp với ${audience}.`,
+        `Dễ sử dụng, tiện lợi cho nhu cầu hằng ngày.`,
+        `Chất liệu và độ bền được tối ưu để bền lâu.`,
+        `Giá trị thực tế, hợp lý cho cả gia đình và cá nhân.`
+      ];
+
+      const seo = [
+        keyword,
+        `${keyword} chất lượng cao`,
+        `${keyword} giá tốt`,
+        `${keyword} cho ${audience.toLowerCase()}`,
+        `${category.toLowerCase()} tiện lợi`,
+        `${name} mới nhất`
+      ].join(', ');
+
+      const adCopy = `Tận dụng ngay ${titleCase(name)} để mang lại sự tiện lợi tối ưu cho cuộc sống của bạn. ${toneMap[tone]} Đặt hàng ngay hôm nay để trải nghiệm sự khác biệt!`;
+
+      document.getElementById('titleOut').textContent = title;
+      document.getElementById('descriptionOut').textContent = description;
+      document.getElementById('adCopyOut').textContent = adCopy;
+      document.getElementById('seoOut').textContent = seo;
+
+      const benefitsOut = document.getElementById('benefitsOut');
+      benefitsOut.innerHTML = benefits.map(item => `<li>${item}</li>`).join('');
+    }
+
+    generateBtn.addEventListener('click', generateContent);
+
+    copyBtn.addEventListener('click', async () => {
+      const allText = [
+        'Title:\n' + document.getElementById('titleOut').textContent,
+        '\nShort Description:\n' + document.getElementById('descriptionOut').textContent,
+        '\nBenefits:\n' + document.getElementById('benefitsOut').innerText,
+        '\nAd Copy:\n' + document.getElementById('adCopyOut').textContent,
+        '\nSEO Keywords:\n' + document.getElementById('seoOut').textContent
+      ].join('\n');
+
+      try {
+        await navigator.clipboard.writeText(allText);
+        copyBtn.textContent = 'Đã copy';
+        setTimeout(() => copyBtn.textContent = 'Copy tất cả', 1200);
+      } catch (err) {
+        copyBtn.textContent = 'Không thể copy';
+      }
+    });
+
+    generateContent();
+  </script>
+</body>
+</html>
