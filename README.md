@@ -1,32 +1,18 @@
 # StarForge Assault
 
-Một game bắn súng arcade đơn giản chạy trên browser, có thể khởi chạy local bằng Node.js server.
+Một game bắn súng arcade chạy trực tiếp trên web, sẵn sàng deploy trên GitHub Pages.
 
-## Cách chạy
+## Link khi bật GitHub Pages
 
-1. Cài đặt Node.js nếu chưa có: https://nodejs.org/
-2. Trong thư mục dự án:
-   ```bash
-   npm install
-   npm start
-   ```
-3. Mở trình duyệt tại:
-   ```text
-   http://127.0.0.1:3000
-   ```
+https://h65412413-code.github.io/space-shooter-game/
 
-## Điều khiển
+## Cách bật GitHub Pages
 
-- Di chuyển: WASD hoặc mũi tên
-- Bắn: Click chuột hoặc Space
-- Nhắm: Di chuột
-- Chơi lại: Nhấn nút trên giao diện khi game over
+1. Vào repo: `https://github.com/h65412413-code/space-shooter-game`
+2. Mở `Settings`
+3. Chọn `Pages`
+4. Source: `Deploy from a branch`
+5. Branch: `gh-pages`, folder `/ (root)`
+6. Save
 
-## Tính năng
-
-- Starfield background
-- Enemy nhiều loại
-- Boss level
-- Power-up khác nhau
-- Best score lưu trong localStorage
-- Hỗ trợ desktop và touch
+Sau đó GitHub sẽ cho link hoạt động trong vài phút.
